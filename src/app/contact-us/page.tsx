@@ -133,9 +133,9 @@ const ContactUs = () => {
 
 
 
-      <section className="p-15 bg-gray">
+      <section className="p-32 bg-gray">
 
-        <Heading className="ml-20 pt-5" variant="h1">Frequently Asked Questions</Heading>
+        <Heading className="ml-10 p-10" variant="h1">Frequently Asked Questions</Heading>
 
 
 
