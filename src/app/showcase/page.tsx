@@ -44,6 +44,7 @@ import Footer from "../sections/Footer";
 import NavBar from "../sections/Navbar";
 
 export default function Components() {
+  
   return (
     <React.Fragment>
       <div className="min-h-screen p-24 pb-48 space-y-20">
@@ -627,5 +628,10 @@ export default function Components() {
 
       </div>
     </React.Fragment>
+
+  
   );
+  
+  
+  
 }

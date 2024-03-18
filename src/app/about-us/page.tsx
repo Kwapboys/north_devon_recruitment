@@ -1,4 +1,6 @@
+
 const AboutUs = () => {
+ 
     return (
       <>
       
@@ -7,6 +9,7 @@ const AboutUs = () => {
             About Us
           </p>
         </section>
+
         {/* Code goes here below here */}
       
       </>
