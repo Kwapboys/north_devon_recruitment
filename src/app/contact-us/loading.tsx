@@ -5,9 +5,9 @@ function Loading() {
   return (
     <>
     <Skeleton>
-      <div className="w-full mx-10 h-full"></div>
+      <div className="w-full mx-10 h-[550px]"></div>
     </Skeleton>
-    <LoadingSkeleton/>
+    {/* <LoadingSkeleton/> */}
     </>
   );
 }

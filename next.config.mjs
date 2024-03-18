@@ -1,4 +1,5 @@
+import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = { reactStrictMode: false, swcMinify: true };
 
-export default nextConfig;
+export default withNextVideo(nextConfig);

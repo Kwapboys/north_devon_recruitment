@@ -8,8 +8,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import Input from "./Input";
 import { Poppins } from "@/resources/fonts";
-import CalendarIcon from "@/icons/CalendarIcon";
+import { CalendarIcon } from "@/icons";
 import { ClockIcon } from "@/icons";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 
 
@@ -117,12 +118,13 @@ const DateInput = ({
       customInput={
         <Input 
           label={label}
+          variant="underlined"
           append={
             <span onClick={() => setOpen(!open)}>
               {variant == "timeOnly"? (
                 <ClockIcon className="w-5 h-5 cursor-pointer text-primary" />
               ) : (
-                <CalendarIcon className="w-5 h-5 cursor-pointer" />
+                <FaRegCalendarAlt fill="#E9722B" color="primary" className="w-5 h-5 cursor-pointer" />
               )}
             </span>
           } 

@@ -2,6 +2,7 @@
 
 import { Poppins } from "@/resources/fonts";
 import type { Metadata } from "next";
+// import * from "react-chatbotify/dist/react-chatbotify.css";
 
 import "./globals.css";
 import NextProvider from "./NextUIProvider";
@@ -16,6 +17,7 @@ import Button from "@/components/Button/index";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import router from "next/router";
+import { GOOGLE_MAPS_API_KEY } from "@/resources/config";
 
 // export const metadata: Metadata = {
 //   title: "North Devon Recruitment",
@@ -41,9 +43,9 @@ const TABS = [
     label: "Vacancies",
   },
   {
-    id: 'contact-us',
-    label:""
-  }
+    id: "contact-us",
+    label: "",
+  },
 ];
 
 export default function RootLayout({
@@ -73,6 +75,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+      
+        <script
+          defer
+          async
+          src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`}
+        ></script>
+      </head>
       <body className={Poppins.className}>
         <NextProvider>
           <main className="light text-foreground bg-background min-w-[1285px] w-screen min-h-screen font-poppins">
@@ -88,7 +98,7 @@ export default function RootLayout({
                   label: tab.label,
                 }))}
                 // ta="text-xs"
-                cusror={`${activeTab === "contact-us" ? "hidden": "visible"}`}
+                cusror={`${activeTab === "contact-us" ? "hidden" : "visible"}`}
                 size="sm"
                 color="primary"
                 activeTabId={activeTab}
@@ -100,7 +110,9 @@ export default function RootLayout({
 
               <Button
                 rounded
-                variant={`${activeTab === "contact-us" ? "solid" : "outlined-solid"}`}
+                variant={`${
+                  activeTab === "contact-us" ? "solid" : "outlined-solid"
+                }`}
                 size="lg"
                 className="w-[250px]"
                 onClick={() => {
