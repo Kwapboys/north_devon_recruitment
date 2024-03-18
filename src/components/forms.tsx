@@ -105,6 +105,7 @@ const Forms = () => {
               onChange={handleLocationChange}
               variant="outlined"
               fullWidth
+              name = "location"
             >
               <MenuItem value="">Select an option</MenuItem>
               <MenuItem value="Ghana">Ghana</MenuItem>
@@ -119,6 +120,7 @@ const Forms = () => {
               onChange={handleTestTypeChange}
               variant="outlined"
               fullWidth
+              name ="test_type"
             >
               <MenuItem value="">Select an option</MenuItem>
               <MenuItem value="OET">OET</MenuItem>
@@ -136,6 +138,7 @@ const Forms = () => {
               onChange={handleTuitionTypeChange}
               variant="outlined"
               fullWidth
+              name ="tuition_type"
             >
               <MenuItem value="">Select an option</MenuItem>
               <MenuItem value="OnlineP">Online - Prestige (3 weeks)</MenuItem>
