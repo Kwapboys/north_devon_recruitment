@@ -30,6 +30,8 @@ interface IAccordion {
   accordionItemsStyle?: SlotsToClasses<AccordionItemSlots>,
   classes?: {
     base?: string
+    content: string,
+    title: string,
   }
 }
 
@@ -64,7 +66,9 @@ function Accordion({
       disabledKeys={disabledItems}
       isDisabled={disabled}
       itemClasses={{
-        base: clsx(classes?.base)
+        base: clsx(classes?.base),
+        content: "pb-8 pt-0 pl-16 pr-8",
+        title: "p-5 mb-0 "
       }}
     >
       {items?.map((item, index) =>(

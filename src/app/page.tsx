@@ -52,8 +52,9 @@ const Home = () => {
           />
           <Heading variant="h5">Global Mobility</Heading>
           <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
+            Our mission is to follow ethical standard inour recruitment activities.
+            We are not active recruiters.
+            
           </p>
         </Card>
         <Card
@@ -69,8 +70,9 @@ const Home = () => {
           />
           <Heading variant="h5">Global Mobility</Heading>
           <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
+            Our Services are gold standard whereas candidate feedback is at 
+            the core of our business strategy.
+         
           </p>
         </Card>
         <Card
@@ -86,8 +88,9 @@ const Home = () => {
           />
           <Heading variant="h5">Global Mobility</Heading>
           <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
+            Proud of the services we give to our clients and our record, but we 
+            are also passionate about our future.
+           
           </p>
         </Card>
       </div>
@@ -113,17 +116,20 @@ const Home = () => {
           <p className="font-semibold">About Us</p>
           <Heading variant="h3">What is Our Mission?</Heading>
           <p className="text-secondary-gray text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Our mission is to empower individuals worldwide by facilitating 
+            access to exceptional educational opportunities, career pathways, 
+            and healthcare services. Our commitment extends to guiding 
+            aspiring students towards their academic goals,...
+
           </p>
           <p className="text-secondary-gray text-sm mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+           Our vision is to be the premier global recruitment agency, 
+           renowned for our commitment to excellence in study abroad 
+           programs, international and local recruitment, healthcare staffing,
+           and standardized test preparation. We aspire to be the catalysts
+           of transformational journeys,...
+           </p>
+         
           <Button size="lg" className="px-8 mt-5" rounded>
             Read more
           </Button>
@@ -134,8 +140,8 @@ const Home = () => {
           <p className="font-semibold">Our Services</p>
           <Heading variant="h3">How we work</Heading>
           <p className="text-secondary-gray text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor
+           We match the right candidates with the right job opportunities, 
+           providing value to both clients and candidates throughout the recruitment process.
           </p>
 
           <div className="flex flex-row items-center justify-start gap-3">
@@ -144,7 +150,7 @@ const Home = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">6000 Years</p>
+            <p className="font-semibold">600 Offers</p>
           </div>
           <div className="flex flex-row items-center justify-start gap-3">
             <IoMdCheckmarkCircleOutline
@@ -160,7 +166,7 @@ const Home = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">60+ Team Members</p>
+            <p className="font-semibold">20+ Team Members</p>
           </div>
           <div className="flex flex-row items-center justify-start gap-3">
             <IoMdCheckmarkCircleOutline
@@ -168,7 +174,7 @@ const Home = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">700+ Satisfied Customers</p>
+            <p className="font-semibold">400+ Satisfied Customers</p>
           </div>
 
           <Button size="lg" className="px-8" rounded>
@@ -204,16 +210,16 @@ const Home = () => {
               <Card
                 shadow
                 padded={false}
-                className="bg-white p-4 h-[200px] flex items-center justify-center"
+                className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
               >
-                <p className="w-1/2">Recruitment Consultancy</p>
+                <p className="w-1/2">International Recruitment </p>
               </Card>
               <Card
                 shadow
                 padded={false}
-                className="bg-white p-4 h-[200px] flex items-center justify-center"
+                className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
               >
-                <p className="w-1/2">Recruitment Consultancy</p>
+                <p className="w-1/2"> ND Healthcare</p>
               </Card>
             </div>
           </div>
@@ -221,23 +227,23 @@ const Home = () => {
             <Card
               shadow
               padded={false}
-              className="bg-white p-4 h-[200px] flex items-center justify-center"
+              className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
             >
-              <p className="w-1/2">Recruitment Consultancy</p>
+              <p className="w-1/2">Local Recruitment</p>
             </Card>
             <Card
               shadow
               padded={false}
-              className="bg-white p-4 h-[200px] flex items-center justify-center"
+              className="bg-white p-4 h-[200px] w- [220px] flex items-center justify-center"
             >
-              <p className="w-1/2">Recruitment Consultancy</p>
+              <p className="w-1/2">Study Abroad</p>
             </Card>
             <Card
               shadow
               padded={false}
               className="bg-primary p-4 h-[200px] flex items-center justify-center"
             >
-              <p className="w-1/2 text-white">Recruitment Consultancy</p>
+              <p className="w-1/2 text-white">Standardized test (OET, GMAT, GRE, TOFEL, IELT)</p>
             </Card>
           </div>
         </div>

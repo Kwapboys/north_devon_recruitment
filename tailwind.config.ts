@@ -25,7 +25,7 @@ const config: Config = {
           gray: "#797A7A"
         },
         gray: {
-          DEFAULT: "#F1F5F5"
+          DEFAULT: "#F5F5F5"
         },
         boxShadow: {
           DEFAULT: "#D0BDD6"

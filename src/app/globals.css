@@ -71,6 +71,21 @@ body {
 }
 
 
+/* embla carousel */
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 370.3px;
+  margin-right: 20px;
+}
+
+
 
 
 
