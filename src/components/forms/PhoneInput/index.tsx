@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Input as NextInput } from "@nextui-org/react";
 import { getCountryCallingCode, formatPhoneNumberIntl } from "react-phone-number-input";
 import { AsYouType, CountryCode, Extension, NumberType, PhoneNumber, parsePhoneNumber } from "libphonenumber-js";
@@ -9,7 +9,6 @@ import { IInputProps } from "../Input";
 import CountrySelect from "./CountrySelect";
 import styles from "../input.module.css";
 import { ICountryCode } from "@/resources/types/index";
-
 
 
 
@@ -85,7 +84,7 @@ function PhoneInput({
   radius,
   size,
   append,
-  defaultCountryCode
+  defaultCountryCode = "GH" as ICountryCode
 }: IPhoneInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const innerVariant = variant == "outlined"? "bordered" : variant;
@@ -120,6 +119,10 @@ function PhoneInput({
     //   inputElem.setSelectionRange(len, len);
     }
   }
+
+  useEffect(() => {
+    if(defaultCountryCode && !value) handleIsoChange(defaultCountryCode);
+  }, [defaultCountryCode])
   
 
   return (
@@ -163,7 +166,7 @@ function PhoneInput({
       onFocus={() =>{setAnimateLabel(true)}}
       errorMessage={error}
       classNames={{
-        inputWrapper: "border-gray-neutral focus:bg-secondary",
+        inputWrapper: "border-gray-neutral focus:bg-secondary py-2 h-14",
         label: clsx(
           animateLabel? "!-translate-y-6 bg-white w-fit px-1 !text-secondary" : styles.phoneLabel
         ),

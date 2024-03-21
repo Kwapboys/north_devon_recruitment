@@ -40,10 +40,32 @@ const TopBar = () => {
         </div>
       </div>
       <div className="flex flex-row items-center justify-end gap-0">
-        <IconButton rounded variant="link" color="secondary">
+        <IconButton
+          rounded
+          variant="link"
+          color="secondary"
+          onClick={(e) => {
+            setTimeout(() => {
+              window.open(
+                "https://www.facebook.com/profile.php?id=61554625350987&mibextid=LQQJ4d"
+              );
+            }, 1000);
+          }}
+        >
           <FacebookIcon className="w-5 h-5" />
         </IconButton>
-        <IconButton rounded variant="link" color="secondary">
+        <IconButton
+          rounded
+          variant="link"
+          color="secondary"
+          onClick={(e) => {
+            setTimeout(() => {
+              window.open(
+                "https://www.instagram.com/p/C1B_jKvrmnK/?igshid=ZDE1MWVjZGVmZQ=="
+              );
+            }, 1000);
+          }}
+        >
           <AiFillInstagram className="w-6 h-6" />
         </IconButton>
       </div>

@@ -1,22 +1,16 @@
 "use client";
 
 import { Poppins } from "@/resources/fonts";
-import type { Metadata } from "next";
-// import * from "react-chatbotify/dist/react-chatbotify.css";
-
-import "./globals.css";
-import NextProvider from "./NextUIProvider";
+import "../globals.css";
+import NextProvider from "../NextUIProvider";
 import Home from "./page";
 import Footer from "./sections/Footer";
-import NavBar from "./sections/Navbar";
 import TopBar from "./sections/Topbar";
-
-import { Chip, Link, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import Tabs from "@/components/Tabs/index";
 import Button from "@/components/Button/index";
 import { useEffect, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import router from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { GOOGLE_MAPS_API_KEY } from "@/resources/config";
 
 // export const metadata: Metadata = {
@@ -76,7 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      
         <script
           defer
           async
@@ -122,6 +115,7 @@ export default function RootLayout({
                 Contact Us
               </Button>
             </div>
+
             {children}
 
             {/* <div className="overflow-x-hidden w-full relative">

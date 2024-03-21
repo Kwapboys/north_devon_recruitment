@@ -13,7 +13,7 @@ import UserAvatar from "@/components/avatars/UserAvatar";
 import Input from "@/components/forms/Input";
 import Select from "@/components/forms/Select";
 import SplitButton from "@/components/Button/SplitButton";
-import {Link} from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -26,7 +26,7 @@ import CountrySelect from "@/components/forms/PhoneInput/CountrySelect";
 import PhoneInput from "@/components/forms/PhoneInput/index";
 import Accordion from "@/components/Accordion";
 import NextImage from "next/image";
-import { Chip, Image, } from "@nextui-org/react";
+import { Chip, Image } from "@nextui-org/react";
 import {
   BsFillTelephoneFill,
   BsMailbox,
@@ -39,9 +39,9 @@ import { IoMdMail } from "react-icons/io";
 import { TbClockFilled } from "react-icons/tb";
 import { GoClockFill } from "react-icons/go";
 import { Table } from "@/components/ui/table";
-import Topbar from "../sections/Topbar";
-import Footer from "../sections/Footer";
-import NavBar from "../sections/Navbar";
+import Topbar from "../../(main-page)/sections/Topbar";
+import Footer from "../../(main-page)/sections/Footer";
+import NavBar from "../../(main-page)/sections/Navbar";
 
 export default function Components() {
   return (
@@ -397,13 +397,13 @@ export default function Components() {
             <div></div>
           </div>
         </section>
-              
-            <Card className="h-[80px] w-[50px] bg-primary">Location</Card>
+
+        <Card className="h-[80px] w-[50px] bg-primary">Location</Card>
 
         <Heading>Phone and Country Inputs</Heading>
         <section id="Tabs" className="grid grid-cols-4 gap-2 ">
           <CountrySelect />
-          <PhoneInput />
+          <PhoneInput placeholder="Phone Number" name="phone" />
         </section>
 
         <Heading variant="h3">Accordions</Heading>
@@ -612,19 +612,20 @@ export default function Components() {
             <Select variant="underlined" label="Select" />
           </div>
           <section id="cards">
-            <Card className="bg-primary h-[150px] w-[200px]"><p>card</p></Card>
+            <Card className="bg-primary h-[150px] w-[200px]">
+              <p>card</p>
+            </Card>
           </section>
         </section>
         <section id="navbar" className="w-full space-y-4">
           <Heading variant="h3">Nav bar</Heading>
-            <NavBar/>
-         
+          <NavBar />
+
           <Heading variant="h3">Top NavBar</Heading>
-         <Topbar/>
+          <Topbar />
         </section>
         <Heading variant="h3">Footer</Heading>
-        <Footer/>
-
+        <Footer />
       </div>
     </React.Fragment>
   );

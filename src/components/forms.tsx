@@ -1,31 +1,34 @@
-import React, { useState } from 'react';
-import Input from './forms/Input';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-import { useRef } from 'react';
+import React, { useState } from "react";
+import Input from "./forms/Input";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import { useRef } from "react";
+import Select from "./forms/Select";
 
 const Forms = () => {
-    const form =useRef()
+  const form = useRef();
 
-    const sendEmail = () =>{};
-  const [location, setLocation] = useState('');
-  const [testType, setTestType] = useState('');
-  const [tuitionType, setTuitionType] = useState('');
-  const [amount, setAmount] = useState('');
+  const sendEmail = () => {};
+  const [location, setLocation] = useState("");
+  const [testType, setTestType] = useState("");
+  const [tuitionType, setTuitionType] = useState("");
+  const [amount, setAmount] = useState("");
 
-  const handleLocationChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setLocation(event.target.value);
-    calculateAmount(event.target.value, testType, tuitionType);
+  const handleLocationChange = (event: string) => {
+    setLocation(event);
+    console.log(event);
+    calculateAmount(event, testType, tuitionType);
   };
 
-  const handleTestTypeChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setTestType(event.target.value);
-    calculateAmount(location, event.target.value, tuitionType);
+  const handleTestTypeChange = (event: string) => {
+    setTestType(event);
+    console.log(event);
+    calculateAmount(location, event, tuitionType);
   };
 
-  const handleTuitionTypeChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setTuitionType(event.target.value);
-    calculateAmount(location, testType, event.target.value);
+  const handleTuitionTypeChange = (event: string) => {
+    setTuitionType(event);
+    calculateAmount(location, testType, event);
   };
 
   const calculateAmount = (
@@ -36,33 +39,36 @@ const Forms = () => {
     let calculatedAmount = 0;
 
     if (
-      (selectedLocation === 'Ghana' || selectedLocation === 'Abroad') &&
-      (selectedTestType === 'GMAT' || selectedTestType === 'GRE' || selectedTestType === 'TOFEL' || selectedTestType === 'IELT')
+      (selectedLocation === "Ghana" || selectedLocation === "Abroad") &&
+      (selectedTestType === "GMAT" ||
+        selectedTestType === "GRE" ||
+        selectedTestType === "TOFEL" ||
+        selectedTestType === "IELT")
     ) {
       switch (selectedTuitionType) {
-        case 'OnlineP':
+        case "OnlineP":
           calculatedAmount = 1300;
           break;
-        case 'OnlineN':
+        case "OnlineN":
           calculatedAmount = 600;
           break;
-        case 'ClassP':
+        case "ClassP":
           calculatedAmount = 1600;
           break;
-        case 'ClassN':
+        case "ClassN":
           calculatedAmount = 800;
           break;
         default:
           calculatedAmount = 0;
       }
-    } else if (selectedLocation === 'Abroad' && selectedTestType === 'OET') {
+    } else if (selectedLocation === "Abroad" && selectedTestType === "OET") {
       switch (selectedTuitionType) {
-        case 'OnlineP':
-        case 'ClassP':
+        case "OnlineP":
+        case "ClassP":
           calculatedAmount = 250;
           break;
-        case 'OnlineN':
-        case 'ClassN':
+        case "OnlineN":
+        case "ClassN":
           calculatedAmount = 170;
           break;
         default:
@@ -70,34 +76,38 @@ const Forms = () => {
       }
     }
 
-    setAmount(selectedLocation === 'Abroad' && calculatedAmount !== 0 ? `£ ${calculatedAmount}` : `GH₵ ${calculatedAmount}`);
+    setAmount(
+      selectedLocation === "Abroad" && calculatedAmount !== 0
+        ? `£ ${calculatedAmount}`
+        : `GH₵ ${calculatedAmount}`
+    );
   };
 
   return (
     <form>
       <>
         <section className="grid grid-cols-2 gap-4">
-          <div>
+          {/* <div>
             <label>Name</label>
             <Input type="text" name="user_name" required />
-          </div>
+          </div> */}
+          <Input label="Name" name="user_name" required />
 
-          <div>
+          {/* <div>
             <label>Email Address</label>
             <Input type="email" name="user_email" required />
-          </div>  
+          </div>   */}
+          <Input label="Email" type="email" name="user_email" required />
         </section>
 
         {/* Add some space between the sections */}
-        <div style={{ marginBottom: '20px' }}></div>
+        <div className="mb-[20px]"></div>
 
         <section className="grid grid-cols-2 gap-4">
-          <div>
-            <label>Contact</label>
-            <Input type="tel" name="user_contact" required />
-          </div>
+          <Input label="Contact" type="tel" name="user_contact" required />
+
           {/* Dropdown within a TextField */}
-          <div>
+          {/* <div>
             <label>Select Location</label>
             <TextField
               select
@@ -111,8 +121,24 @@ const Forms = () => {
               <MenuItem value="Ghana">Ghana</MenuItem>
               <MenuItem value="Abroad">Abroad</MenuItem>
             </TextField>
-          </div>
-          <div>
+          </div> */}
+          <Select
+            onValueChange={(val) => {
+              if (val?.[0].id == "gh") {
+                handleLocationChange("Ghana");
+              } else if (val?.[0].id == "intl") {
+                handleLocationChange("Abroad");
+              }
+            }}
+            // onChange={handleLocationChange}
+            name="location"
+            label="Select Location"
+            options={[
+              { id: "gh", label: "Ghana", value: "Ghana" },
+              { id: "intl", label: "Abroad", value: "Abroad" },
+            ]}
+          />
+          {/* <div>
             <label>Select test type</label>
             <TextField
               select
@@ -120,7 +146,7 @@ const Forms = () => {
               onChange={handleTestTypeChange}
               variant="outlined"
               fullWidth
-              name ="test_type"
+              name="test_type"
             >
               <MenuItem value="">Select an option</MenuItem>
               <MenuItem value="OET">OET</MenuItem>
@@ -129,8 +155,31 @@ const Forms = () => {
               <MenuItem value="TOFEL">TOFEL</MenuItem>
               <MenuItem value="IELT">IELT</MenuItem>
             </TextField>
-          </div>
-          <div>
+          </div> */}
+          <Select
+            // onValueChange={(val) => {
+            //   if (val?.[0].id == "gh") {
+            //     handleLocationChange("Ghana")
+            //   } else if (val?.[0].id == "intl") {
+            //     handleLocationChange("Abroad")
+            //   }
+            // }}
+
+            onChange={(e) => {
+              handleTestTypeChange(e?.target.value);
+            }}
+            name="test_type"
+            label="Select test type"
+            options={[
+              { id: "OET", label: "OET", value: "OET" },
+              { id: "GMAT", label: "GMAT", value: "GMAT" },
+              { id: "GRE", label: "GRE", value: "GRE" },
+              { id: "TOFEL", label: "TOFEL", value: "TOFEL" },
+              { id: "IELT", label: "IELT", value: "IELT" },
+            ]}
+          />
+
+          {/* <div>
             <label>Type of Tuition</label>
             <TextField
               select
@@ -138,7 +187,7 @@ const Forms = () => {
               onChange={handleTuitionTypeChange}
               variant="outlined"
               fullWidth
-              name ="tuition_type"
+              name="tuition_type"
             >
               <MenuItem value="">Select an option</MenuItem>
               <MenuItem value="OnlineP">Online - Prestige (3 weeks)</MenuItem>
@@ -146,10 +195,53 @@ const Forms = () => {
               <MenuItem value="ClassP">Class - Prestige (3 weeks)</MenuItem>
               <MenuItem value="ClassN">Class - Normal (2 months)</MenuItem>
             </TextField>
-          </div>
+          </div> */}
+          <Select
+            // onValueChange={(val) => {
+            //   if (val?.[0].id == "gh") {
+            //     handleLocationChange("Ghana")
+            //   } else if (val?.[0].id == "intl") {
+            //     handleLocationChange("Abroad")
+            //   }
+            // }}
+
+            onChange={(e) => {
+              handleTuitionTypeChange(e?.target.value);
+            }}
+            name="tuition_type"
+            label="Type of tuition"
+            options={[
+              {
+                id: "OnlineP",
+                label: "Online - Prestige (3 weeks)",
+                value: "OnlineP",
+              },
+              {
+                id: "OnlineN",
+                label: "Online - Normal (2 months)",
+                value: "OnlineN",
+              },
+              {
+                id: "ClassP",
+                label: "Class - Prestige (3 weeks)",
+                value: "ClassP",
+              },
+              {
+                id: "ClassN",
+                label: "Class - Normal (2 months)",
+                value: "ClassN",
+              },
+            ]}
+          />
           <div>
-            <label>Amount to be paid</label>
-            <Input type="text" name="Amount" value={amount} readonly />
+            <Input
+              placeholder="Amount to be paid"
+              type="text"
+              name="Amount"
+              value={amount}
+              readonly
+              size="lg"
+            />
           </div>
         </section>
       </>

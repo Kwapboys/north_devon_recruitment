@@ -4,18 +4,14 @@ import React from "react";
 import Heading from "@/components/Heading";
 import Accordion from "@/components/Accordion";
 import Button from "@/components/Button";
-import Textarea from "@/components/forms/Textarea";
 import Input from "@/components/forms/Input";
 import Select from "@/components/forms/Select";
 import PhoneInput from "@/components/forms/PhoneInput/index";
-import MapSearch from "@/components/Location/MapSearch";
 import { Formik } from "formik";
 import DateInput from "@/components/forms/DateInput";
 import * as Yup from "yup";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
-import { ChevronDownIcon } from "@/icons/index";
-import { BsChevronDown, BsChevronLeft, BsChevronUp } from "react-icons/bs";
-import { FaChevronDown, FaChevronLeft, FaChevronUp } from "react-icons/fa";
+import { FaChevronLeft} from "react-icons/fa";
 import KumasiMapSearch from "./KumasiMapSearch";
 import AccraMapSearch from "./AccraMapSearch";
 
@@ -177,15 +173,16 @@ const ContactUs = () => {
                     onBlur={handleBlur}
                     error={touched.phone ? errors.phone : ""}
                   /> */}
-                    <Input
+                    <PhoneInput
+                      variant="underlined"
+                      placeholder="Phone Number"
                       name="phone"
                       value={values.phone}
-                      onChange={handleChange}
+                      onChange={(v) => {
+                        setFieldValue("phone", v);
+                      }}
                       onBlur={handleBlur}
                       error={touched.phone ? errors.phone : undefined}
-                      required
-                      label="Phone"
-                      variant="underlined"
                     />
                   </div>
                   <div className="w-full flex flex-row items-start gap-4">
@@ -243,7 +240,7 @@ const ContactUs = () => {
         </Card>
       </div>
 
-      <div className="bg-gray w-full h-[750px] pt-10 pb-16 px-28 space-y-8">
+      <div className="bg-gray w-full h-[800px] pt-10 pb-16 px-28 space-y-8">
         <Heading variant="h1">Frequently Asked Questions</Heading>
         <Accordion
           // accordionItemsStyle={}

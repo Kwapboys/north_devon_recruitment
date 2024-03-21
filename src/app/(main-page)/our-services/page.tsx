@@ -1,27 +1,19 @@
 "use client"
 
 import { useEffect, useRef } from "react";
-
 import Card from "@/components/Card";
 import Heading from "@/components/Heading";
-import { IoAirplaneSharp, IoFlowerOutline } from "react-icons/io5";
-import { CircularProgress, Image, Skeleton } from "@nextui-org/react";
-import { TbPlaneTilt } from "react-icons/tb";
+import { CircularProgress, Image } from "@nextui-org/react";
 import Button from "@/components/Button/index";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Input from "@/components/forms/Input";
-import PhoneInput from "@/components/forms/PhoneInput/index";
 import DateInput from "@/components/forms/DateInput";
 import Select from "@/components/forms/Select";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import northVideo from "../../videos/north-video.mp4";
-import Video from "next-video";
 import HoverVideoPlayer from "react-hover-video-player";
-import MapSearch from "@/components/Location/MapSearch";
-import { useState } from "react";
-import Chatbot from "@/components/Chatbot";
 import styles from "../card.module.css"
+import { IoFlowerOutline } from "react-icons/io5";
 
 const OurServices = () => {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -176,15 +176,19 @@ const Chatbot = () => {
     },
 
     chatButtonStyle: {
-      backgroundColor: "#E9722B",
+      // backgroundColor: "#FFFFFF",
+      // height: "150px"
+      // width: "1"
     },
     headerStyle: {
-      background: "url( '/images/class.jpg')",
-      height: "30%",
+      background: "url('/images/chatboot.jpg')",
+      height: "50%",
       width: "100%",
     },
     tooltipStyle: {
       zIndex: "100",
+      width: "130px",
+      fontSize: "13px"
     },
     chatWindowStyle: {
       width: "400px",

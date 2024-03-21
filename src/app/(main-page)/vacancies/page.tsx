@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Card from "@/components/Card";
 import Heading from "@/components/Heading";
-import { Chip, Link, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import Button from "@/components/Button";
-import Input from "@/components/forms/Input";
+
 import Forms from "@/components/forms";
 import styles from "../card.module.css";
 import AhodwoMapSearch from "./AhodwoMapSearch";
@@ -12,7 +12,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const Vacancies = () => {
   const [value, setValue] = React.useState("fruit");
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef] = useEmblaCarousel({ dragFree: true });
 
   const handleChange = (event: {
     target: { value: React.SetStateAction<string> };
@@ -21,11 +21,12 @@ const Vacancies = () => {
   };
   return (
     <>
-      <section className="h-[527px] overflow-hidden relative bg-[url('/images/vacanciesImage.jpg')] bg-no-repeat bg-center bg-cover opacity-90">
+      <section className="h-[525px] overflow-hidden relative bg-[url('/images/vacanciesImage.jpg')] bg-no-repeat bg-center bg-cover">
         <p className="text-9xl w-full bg-transparent font-black subpixel-antialiased tracking-wide text-gray opacity-70 absolute bottom-0 left-10 mb-0 pb-0">
           Vacancies
         </p>
       </section>
+
       {/* New section with the left text and image on the right */}
       <section className="flex justify-center items-center space-x-8 mt-8 px-32">
         {/* Text on the left */}
@@ -89,16 +90,19 @@ const Vacancies = () => {
                       levels. Those roles are oepn to all, including applicants
                       based outside the UK.
                     </p>
-                    <Button
-                      onClick={() =>
-                        (window.location.href = "/appointmentForm")
-                      }
-                      className="mt-5"
-                      rounded
-                      size="lg"
-                    >
-                      Book
-                    </Button>
+                    <div className="w-1/2">
+                      <Button
+                        onClick={() =>
+                          (window.location.href = "/appointmentForm")
+                        }
+                        className="mt-5"
+                        rounded
+                        size="lg"
+                        fullWidth
+                      >
+                        Book
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -117,16 +121,19 @@ const Vacancies = () => {
                       levels. Those roles are oepn to all, including applicants
                       based outside the UK.
                     </p>
-                    <Button
-                      onClick={() =>
-                        (window.location.href = "/appointmentForm")
-                      }
-                      className="mt-5"
-                      rounded
-                      size="lg"
-                    >
-                      Book
-                    </Button>
+                    <div className="w-1/2">
+                      <Button
+                        onClick={() =>
+                          (window.location.href = "/appointmentForm")
+                        }
+                        className="mt-5"
+                        rounded
+                        size="lg"
+                        fullWidth
+                      >
+                        Book
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -145,16 +152,19 @@ const Vacancies = () => {
                       levels. Those roles are oepn to all, including applicants
                       based outside the UK.
                     </p>
-                    <Button
-                      onClick={() =>
-                        (window.location.href = "/appointmentForm")
-                      }
-                      className="mt-5"
-                      rounded
-                      size="lg"
-                    >
-                      Book
-                    </Button>
+                    <div className="w-1/2">
+                      <Button
+                        onClick={() =>
+                          (window.location.href = "/appointmentForm")
+                        }
+                        className="mt-5"
+                        rounded
+                        size="lg"
+                        fullWidth
+                      >
+                        Book
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -173,136 +183,52 @@ const Vacancies = () => {
                       levels. Those roles are oepn to all, including applicants
                       based outside the UK.
                     </p>
-                    <Button
-                      onClick={() =>
-                        (window.location.href = "/appointmentForm")
-                      }
-                      className="mt-5"
-                      rounded
-                      size="lg"
-                    >
-                      Book
-                    </Button>
+                    <div className="w-1/2">
+                      <Button
+                        onClick={() =>
+                          (window.location.href = "/appointmentForm")
+                        }
+                        className="mt-5"
+                        rounded
+                        size="lg"
+                        fullWidth
+                      >
+                        Book
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>
             </div>
             <div className="embla__slide">
-              {" "}
               <div className="flex-shrink-0 w-[370.3px]">
                 <Card className="w-full h-[320px] bg-gray">
                   <div className="flex flex-col h-full justify-between">
-                    <Heading variant="h4">
-                      Banking & non-banking Professionals
-                    </Heading>
+                    <Heading variant="h3">Are you based in the UK?</Heading>
                     <p>
-                      The worlds leading financial services firm, BARCLAYS, is
-                      hiring banking & non-banking Professionals at various
-                      levels. Those roles are oepn to all, including applicants
-                      based outside the UK.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.
                     </p>
-                    <Button
-                      onClick={() =>
-                        (window.location.href = "/appointmentForm")
-                      }
-                      className="mt-5"
-                      rounded
-                      size="lg"
-                    >
-                      Book
-                    </Button>
+                    <div className="w-1/2">
+                      <Button
+                        onClick={() =>
+                          (window.location.href = "/appointmentForm")
+                        }
+                        className="mt-5"
+                        rounded
+                        size="lg"
+                        fullWidth
+                      >
+                        Button
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </div>
             </div>
           </div>
         </div>
-        {/* <div className="flex w-full overflow-x-auto space-x-9 p-4 pl-0 ">
-          
-          <div className="flex-shrink-0 w-[370.3px]">
-            <Card className="w-full h-[320px] bg-gray">
-              <div className="flex flex-col h-full justify-between">
-                <Heading variant="h4">
-                  Banking & non-banking Professionals
-                </Heading>
-                <p>
-                  The worlds leading financial services firm, BARCLAYS, is
-                  hiring banking & non-banking Professionals at various levels.
-                  Those roles are oepn to all, including applicants based
-                  outside the UK.
-                </p>
-                <Button
-                  onClick={() => (window.location.href = "/appointmentForm")}
-                  className="mt-5"
-                  rounded
-                  size="lg"
-                >
-                  Book
-                </Button>
-              </div>
-            </Card>
-          </div>
-
-          
-          <div className="flex-shrink-0 w-[370.3px]">
-            <Card className="w-full h-[320px] bg-gray">
-              <div className="flex flex-col h-full justify-between">
-                <Heading variant="h3">Are you based in the UK?</Heading>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <Button className="mt-5" rounded size="lg">
-                  Button
-                </Button>
-              </div>
-            </Card>
-          </div>
-
-          
-          <div className="flex-shrink-0 w-[370.3px]">
-            <Card className="w-full h-[320px] bg-gray">
-              <div className="flex flex-col h-full justify-between">
-                <Heading variant="h3">Are you based in the UK?</Heading>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <Button className="mt-5" rounded size="lg">
-                  Button
-                </Button>
-              </div>
-            </Card>
-          </div>
-          <div className="flex-shrink-0 w-[370.3px]">
-            <Card className="w-full h-[320px] bg-gray">
-              <div className="flex flex-col h-full justify-between">
-                <Heading variant="h3">Are you based in the UK?</Heading>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <Button className="mt-5" rounded size="lg">
-                  Button
-                </Button>
-              </div>
-            </Card>
-          </div>
-          <div className="flex-shrink-0 w-[370.3px]">
-            <Card className="w-full h-[320px] bg-gray">
-              <div className="flex flex-col h-full justify-between">
-                <Heading variant="h3">Are you based in the UK?</Heading>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <Button className="mt-5" rounded size="lg">
-                  Button
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </div> */}
       </section>
 
       {/* forms */}
@@ -364,7 +290,9 @@ const Vacancies = () => {
               </Heading>
               <Forms />
               <br />
-              <Button className="text-center">Proceed to payment</Button>
+              <Button rounded size="md" className="text-center">
+                Proceed to payment
+              </Button>
             </Card>
           </div>
         </Card>
@@ -381,26 +309,6 @@ const Vacancies = () => {
 
         {/* Two Vertical Cards on the right */}
         <div className="flex-shrink-0 space-y-5">
-          {/* <Card className="h-[290px] w-[430px] bg-primary text-white">
-            <div className="flex flex-col h-full">
-              <Heading variant="h2" className="mb-3">
-                Kumasi Training Center
-              </Heading>
-              <p>
-                NorthDevon Training center,
-                <br />
-                Ahodwo Roundabout, 3rd floor,
-                <br />
-                Nyarko Plaza
-              </p>
-              <br />
-
-              <Heading variant="h2" className="mb-3">
-                Working Hours
-              </Heading>
-              <p>Monday - Friday: 8:00am - 5:00am</p>
-            </div>
-          </Card> */}
           <Card className=" h-[290px] w-[430px] bg-primary pt-10 px-14 flex flex-col items-start justify-start gap-10 text-white">
             <div>
               <Heading variant="h2" className="mb-3">
