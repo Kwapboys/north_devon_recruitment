@@ -1,5 +1,6 @@
-import { Skeleton } from "@nextui-org/react";
-import { LoadingSkeleton } from "../../sections/LoadingSkeleton";
+import { CircularProgress, Skeleton } from "@nextui-org/react";
+import { Chip, Link, Image } from "@nextui-org/react";
+
 
 function Loading() {
   return (
@@ -7,7 +8,7 @@ function Loading() {
       <Skeleton>
         <div className="w-full mx-10 h-[550px] rounded-full"></div>
       </Skeleton>
-      {/* <LoadingSkeleton /> */}
+     
     </>
   );
 }

@@ -115,7 +115,7 @@ const Chatbot = () => {
       storageKey: "example_theming",
     },
     floated: true,
-    header: {},
+    
     chatButton: {
       icon: "/images/north.png",
     },
@@ -168,6 +168,7 @@ const Chatbot = () => {
               height={50}
               className="mb-[-10px] pt-2"
               src="/images/north.png"
+              alt="logo"
             />
             <span className="text-[10px]">North Devon Recruitment</span>
           </span>
@@ -273,10 +274,10 @@ const Chatbot = () => {
               }, 1000);
               break;
           case "Help Desk":
-            link = "https://wa.me/+233530610013";
-            setTimeout(() => {
-              window.open(link);
-            }, 1000);
+            // link = "https://wa.me/+233530610013";
+            // setTimeout(() => {
+            //   window.open(link);
+            // }, 1000);
             break;
 
           default:

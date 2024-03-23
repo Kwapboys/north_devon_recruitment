@@ -45,8 +45,10 @@
     "yup": "^1.3.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.0",
     "@types/node": "^20",
     "@types/react": "^18.2.64",
+    "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",

@@ -15,10 +15,18 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-start justify-start gap-2 text-white">
           <div className="font-semibold text-white">Quick Links</div>
-          <Link className="text-white cursor-pointer">Home</Link>
-          <Link className="text-white cursor-pointer">About Us</Link>
-          <Link className="text-white cursor-pointer">Services</Link>
-          <Link className="text-white cursor-pointer">Vacancies</Link>
+          <Link href="/" className="text-white cursor-pointer">
+            Home
+          </Link>
+          <Link href="/about-us" className="text-white cursor-pointer">
+            About Us
+          </Link>
+          <Link href="/our-services" className="text-white cursor-pointer">
+            Services
+          </Link>
+          <Link href="/vacancies" className="text-white cursor-pointer">
+            Vacancies
+          </Link>
         </div>
         <div className="flex flex-col items-start justify-start gap-2 text-white">
           <div className="font-semibold text-white">FaQ and Terms</div>

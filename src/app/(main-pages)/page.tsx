@@ -1,101 +1,83 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react";
 import Card from "@/components/Card";
 import Heading from "@/components/Heading";
 import { CircularProgress, Image } from "@nextui-org/react";
 import Button from "@/components/Button/index";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Input from "@/components/forms/Input";
+import PhoneInput from "@/components/forms/PhoneInput/index";
 import DateInput from "@/components/forms/DateInput";
 import Select from "@/components/forms/Select";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import HoverVideoPlayer from "react-hover-video-player";
-import styles from "../card.module.css"
-import { IoFlowerOutline } from "react-icons/io5";
+import  HoverVideoPlayer from "react-hover-video-player";
+import { useState } from "react";
+import Chatbot from "@/components/Chatbot";
+import styles from "./card.module.css";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 
-const OurServices = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const scrollContainerToBottom = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  };
-
-  useEffect(() => {
-    scrollContainerToBottom()
-  }, []);
+const Home = () => {
+  const [mapInfo, setMapInfo] = useState<{
+    lat: number;
+    lng: number;
+    locationAddress: string;
+  }>({} as { lat: number; lng: number; locationAddress: string });
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ stopOnInteraction: false }),
+  ]);
 
   return (
+    <div>
     <>
-      <section className="overflow-hidden h-[527px]">
-        <video
-          src="/plane.mp4"
-          autoPlay={true}
-          loop
-          height={100}
-          muted
-          className="z-0 w-auto
-              min-w-full min-h-[200px] max-w-none"
-        ></video>
-      </section>
-      <div className="w-full mb-14 flex flex-row items-center justify-center gap-7 ">
-        <Card
-          shadow
-          bordered
-          padded
-          className="w-[300px] mt-[-80px] drop-shadow-xl  mb-6 bg-white flex flex-col items-center justify-center"
+      <section className="h-[527px] overflow-hidden relative bg-[url('/images/doctors.jpg')] bg-no-repeat bg-center bg-cover opacity-90 "></section>
+
+      <div className="w-[94%] mx-auto my-8 px-10">
+        <div className="flex items-center justify-center px-6 mx-auto">
+          <div className="flex-grow border-b border-secondary"></div>
+          <div className="px-4  mx-auto">
+            Companies we have guided and supported our clients in
+          </div>
+          <div className="flex-grow border-b border-secondary"></div>
+        </div>
+        <div
+          className="embla w-full overflow-x-hidden p-4 pl-0 "
+          ref={emblaRef}
         >
-          <IoFlowerOutline
-            fill="#E9722B"
-            color="#E9722B"
-            className="my-6 w-8 h-8"
-          />
-          <Heading variant="h5">Global Mobility</Heading>
-          <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
-          </p>
-        </Card>
-        <Card
-          shadow
-          bordered
-          padded
-          className="w-[300px] drop-shadow-xl  mt-[-80px] mb-6 bg-white flex flex-col items-center justify-center"
-        >
-          <IoFlowerOutline
-            fill="#E9722B"
-            color="#E9722B"
-            className="my-6 w-8 h-8"
-          />
-          <Heading variant="h5">Global Mobility</Heading>
-          <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
-          </p>
-        </Card>
-        <Card
-          shadow
-          bordered
-          padded
-          className="w-[300px] mt-[-80px] drop-shadow-xl  mb-6 bg-white flex flex-col items-center justify-center"
-        >
-          <IoFlowerOutline
-            fill="#E9722B"
-            color="#E9722B"
-            className="my-6 w-8 h-8"
-          />
-          <Heading variant="h5">Global Mobility</Heading>
-          <p className="text-center text-sm mb-5">
-            We facilitate and support employee's passage abroad making sure we
-            adhere to WHO code of practice
-          </p>
-        </Card>
+          <div className="embla__container">
+            <div className="embla__slide ">
+              <Image src="/images/nhs.jpg" alt="nhs" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image src="/images/bc.jpg" alt="british council" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image src="/images/amazon.jpg" alt="amazon" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image
+                src="/images/barclays.jpg"
+                alt="barclays"
+                className="w-[120px] h-[80px]"
+              />
+            </div>
+            <div className="embla__slide">
+              <Image alt="meta" src="/images/meta.jpg" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image alt="netflix" src="/images/netflix.jpg" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image alt="jpm" src="/images/jpm.jpg" className="w-[120px] h-[80px]" />
+            </div>
+            <div className="embla__slide">
+              <Image alt="d/o.e" src="/images/doe.jpg" className="w-[200px] h-[100px]" />
+            </div>
+          </div>
+        </div>
       </div>
+
       <div className="bg-gray w-full h-[650px] p-8 flex flex-row items-center justify-start gap-8">
         <Card
           shadow
@@ -104,13 +86,23 @@ const OurServices = () => {
           className="p-4 shadow-lg w-7/12 h-[550px] flex flex-row items-center justify-start gap-4 cursor-pointer"
         >
           <div className="w-1/2 h-full p-0 pb-2 flex flex-col items-start justify-start gap-2">
-            <Image isBurred isZoomed src="/images/family.jpg" />
-            <Image isBurred isZoomed src="/images/teachers.jpg" />
+            <Image isBurred isZoomed src="/images/family.jpg" alt="family" />
+            <Image isBurred isZoomed src="/images/teachers.jpg" alt="teachers" />
           </div>
           <div className="w-1/2 flex flex-col h-full p-0">
-            <Image isBurred isZoomed src="/images/old.jpg" className="w-full h-[400px]" />
-      
-            <Image src="/images/plane-path.png" className="mt-[-80px] p-0 w-[400px] h-[300px]"/>
+            <Image
+              isBurred
+              isZoomed
+              src="/images/old.jpg"
+              className="w-full h-[400px]"
+              alt="old"
+            />
+
+            <Image
+              src="/images/plane-path.png"
+              alt="plane"
+              className="mt-[-80px] p-0 w-[400px] h-[300px]"
+            />
             {/* <TbPlaneTilt fill="#E9722B" color="#E9722B" className="mt-7 h-10 w-10 flex justify-center"/> */}
           </div>
         </Card>
@@ -118,29 +110,32 @@ const OurServices = () => {
           <p className="font-semibold">About Us</p>
           <Heading variant="h3">What is Our Mission?</Heading>
           <p className="text-secondary-gray text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Our mission is to empower individuals worldwide by facilitating
+            access to exceptional educational opportunities, career pathways,
+            and healthcare services. Our commitment extends to guiding aspiring
+            students towards their academic goals,...
           </p>
           <p className="text-secondary-gray text-sm mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Our vision is to be the premier global recruitment agency, renowned
+            for our commitment to excellence in study abroad programs,
+            international and local recruitment, healthcare staffing, and
+            standardized test preparation. We aspire to be the catalysts of
+            transformational journeys,...
           </p>
+
           <Button size="lg" className="px-8 mt-5" rounded>
             Read more
           </Button>
         </div>
       </div>
-      <div className="w-full overflow-hidden p-8 flex flex-row items-center justify-start gap-8" ref={containerRef}>
+      <div className="w-full overflow-hidden p-8 flex flex-row items-center justify-start gap-8">
         <div className="w-5/12 pl-8 h-[450px] flex flex-col items-start justify-start gap-4">
           <p className="font-semibold">Our Services</p>
           <Heading variant="h3">How we work</Heading>
           <p className="text-secondary-gray text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor
+            We match the right candidates with the right job opportunities,
+            providing value to both clients and candidates throughout the
+            recruitment process.
           </p>
 
           <div className="flex flex-row items-center justify-start gap-3">
@@ -149,7 +144,7 @@ const OurServices = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">6000 Years</p>
+            <p className="font-semibold">600 Offers</p>
           </div>
           <div className="flex flex-row items-center justify-start gap-3">
             <IoMdCheckmarkCircleOutline
@@ -165,7 +160,7 @@ const OurServices = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">60+ Team Members</p>
+            <p className="font-semibold">20+ Team Members</p>
           </div>
           <div className="flex flex-row items-center justify-start gap-3">
             <IoMdCheckmarkCircleOutline
@@ -173,7 +168,7 @@ const OurServices = () => {
               color="#E9722B"
               className="w-8 h-8"
             />
-            <p className="font-semibold">700+ Satisfied Customers</p>
+            <p className="font-semibold">400+ Satisfied Customers</p>
           </div>
 
           <Button size="lg" className="px-8" rounded>
@@ -184,18 +179,34 @@ const OurServices = () => {
           shadow={false}
           rounded
           padded={false}
-          className={`p-4 mt-8 mb-8 w-7/12 h-[500px] flex flex-col items-center justify-start gap-4 cursor-pointer`}
+          className={`p-4 mt-8 mb-8 w-7/12 h-[500px] ${styles.card} flex flex-col items-center justify-start gap-4 cursor-pointer`}
         >
-          <div className={`w-[550px] h-full p-0`}>
-            <Image  src="/images/teaching.jpg" className={`w-[550px] ${styles.card} hover:scale-110`} />
+          <div
+            className={`w-[550px] h-full p-0 ${styles.card} ${styles.innercard}`}
+          >
+            <Image
+              isZoomed
+              alt="teachers"
+              src="/images/teaching.jpg"
+              className={`w-[550px]`}
+            />
             {/* <TbPlaneTilt fill="#E9722B" color="#E9722B" className="mt-7 h-10 w-10 flex justify-center"/> */}
           </div>
-          <div className={`w-[470px]  mt-[-80px] h-full p-0 pb-2 flex flex-row items-start justify-start gap-2`}>
-            <Image 
+          <div
+            className={`w-[470px] ${styles.innercard}  mt-[-80px] h-full p-0 pb-2 flex flex-row items-start justify-start gap-2 z-10`}
+          >
+            <Image
+              isZoomed
               src="/images/industry.jpeg"
-              className={`w-[500px] ${styles.innercard} h-[150px] hover:scale-110`}
+              className={`w-[500px] h-[150px]`}
+              alt="industry"
             />
-            <Image  src="/images/class.jpg" className={`w-[500px] ${styles.innercard} h-[150px] hover:scale-110`} />
+            <Image
+              isZoomed
+              src="/images/class.jpg"
+              alt="class"
+              className={`w-[500px] h-[150px]`}
+            />
           </div>
         </Card>
       </div>
@@ -209,16 +220,16 @@ const OurServices = () => {
               <Card
                 shadow
                 padded={false}
-                className="bg-white p-4 h-[200px] flex items-center justify-center"
+                className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
               >
-                <p className="w-1/2">Recruitment Consultancy</p>
+                <p className="w-1/2">International Recruitment </p>
               </Card>
               <Card
                 shadow
                 padded={false}
-                className="bg-white p-4 h-[200px] flex items-center justify-center"
+                className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
               >
-                <p className="w-1/2">Recruitment Consultancy</p>
+                <p className="w-1/2"> ND Healthcare</p>
               </Card>
             </div>
           </div>
@@ -226,28 +237,30 @@ const OurServices = () => {
             <Card
               shadow
               padded={false}
-              className="bg-white p-4 h-[200px] flex items-center justify-center"
+              className="bg-white p-4 h-[200px] w-[220px] flex items-center justify-center"
             >
-              <p className="w-1/2">Recruitment Consultancy</p>
+              <p className="w-1/2">Local Recruitment</p>
             </Card>
             <Card
               shadow
               padded={false}
-              className="bg-white p-4 h-[200px] flex items-center justify-center"
+              className="bg-white p-4 h-[200px] w- [220px] flex items-center justify-center"
             >
-              <p className="w-1/2">Recruitment Consultancy</p>
+              <p className="w-1/2">Study Abroad</p>
             </Card>
             <Card
               shadow
               padded={false}
               className="bg-primary p-4 h-[200px] flex items-center justify-center"
             >
-              <p className="w-1/2 text-white">Recruitment Consultancy</p>
+              <p className="w-1/2 text-white">
+                Standardized test (OET, GMAT, GRE, TOFEL, IELT)
+              </p>
             </Card>
           </div>
         </div>
         <div className="w-2/5 h-[500px] my-auto z-0">
-          <Image src="/images/plane.jpeg" className="h-[500px] rounded-none" />
+          <Image src="/images/plane.jpeg" className="h-[500px] rounded-none"  alt="plane"/>
         </div>
       </div>
       <div className="mt-0 w-full h-[800px] p-8 flex flex-row items-center justify-start gap-8">
@@ -261,7 +274,13 @@ const OurServices = () => {
             Vacancies and Events
           </Heading>
 
-          <Image isBurred isZoomed src="/images/book.jpg" className="h-[420px] w-[550px]" />
+          <Image
+            isBurred
+            isZoomed
+            src="/images/book.jpg"
+            className="h-[420px] w-[550px]"
+            alt="books"
+          />
           <div className="flex flex-col items-start justify-start gap-4 mx-8 mt-4">
             <Heading variant="h6">Lorem ipsum dolor sit amet</Heading>
             <p className="text-secondary-gray text-sm">
@@ -305,7 +324,7 @@ const OurServices = () => {
         </div>
       </div>
 
-    <div className="mx-auto w-2/3">
+      <div className="mx-auto w-2/3">
         {/* <Video  autoPlay={false} accentColor="#E9722B" src={northVideo}/> */}
         <HoverVideoPlayer
           videoSrc="/north-video.mp4"
@@ -322,10 +341,8 @@ const OurServices = () => {
               <CircularProgress className="w-14 h-14" />
             </div>
           }
-      
         />
-        </div>
-      
+      </div>
 
       <div className="bg-gray w-full h-[650px] p-10 flex justify-center mt-4">
         <Card
@@ -371,7 +388,9 @@ const OurServices = () => {
               validateOnBlur
               validateOnChange={false}
               validationSchema={Yup.object({
-                name: Yup.string().trim().required("Name required"),
+                name: Yup.string()
+                  .trim()
+                  .required("Name required"),
                 date: Yup.date().required("Pick date"),
                 time: Yup.date().required("Pick time"),
                 email: Yup.string()
@@ -417,16 +436,19 @@ const OurServices = () => {
                       label="Enter email"
                       variant="underlined"
                     />
-                    {/* <PhoneInput
-                    required
-                    label="Phone"
-                    variant="underlined"
-                    value={values.phone}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.phone ? errors.phone : ""}
-                  /> */}
-                    <Input
+                    <PhoneInput
+                      variant="underlined"
+                      placeholder="Phone Number"
+                      name="phone"
+                      value={values.phone}
+                      onChange={(v) => {
+                        setFieldValue("phone", v);
+                      }}
+                      onBlur={handleBlur}
+                      error={touched.phone ? errors.phone : undefined}
+                    />
+
+                    {/* <Input
                       name="phone"
                       value={values.phone}
                       onChange={handleChange}
@@ -435,10 +457,11 @@ const OurServices = () => {
                       required
                       label="Phone"
                       variant="underlined"
-                    />
+                    /> */}
                   </div>
                   <div className="w-full flex flex-row items-start gap-4">
                     <DateInput
+                    
                       name="date"
                       value={values.date ?? null}
                       required
@@ -451,6 +474,7 @@ const OurServices = () => {
                       onBlur={handleBlur}
                       error={touched.date ? errors.date : undefined}
                       rangeVariant="start"
+                    
                     />
                     <DateInput
                       name="time"
@@ -491,8 +515,11 @@ const OurServices = () => {
           </div>
         </Card>
       </div>
+      {/* <MapSearch /> */}
+      <Chatbot />
     </>
+    </div>
   );
 };
 
-export default OurServices;
+export default Home;

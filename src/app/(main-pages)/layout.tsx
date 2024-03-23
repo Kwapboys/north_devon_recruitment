@@ -4,8 +4,8 @@ import { Poppins } from "@/resources/fonts";
 import "../globals.css";
 import NextProvider from "../NextUIProvider";
 import Home from "./page";
-import Footer from "./sections/Footer";
-import TopBar from "./sections/Topbar";
+import Footer from "../../components/sections/Footer";
+import TopBar from "../../components/sections/Topbar";
 import { Image } from "@nextui-org/react";
 import Tabs from "@/components/Tabs/index";
 import Button from "@/components/Button/index";
@@ -83,7 +83,7 @@ export default function RootLayout({
               <TopBar />
             </div>
             <div className="bg-gray flex flex-row items-center justify-between rounded-full px-10 py-0 h-[80px] z-30 absolute top-[15%] left-10 right-10 mx-auto">
-              <Image width={200} height={200} src="/images/north.png" />
+              <Image width={200} height={200} src="/images/north.png" alt="logo" />
               <Tabs
                 wrapperClassName="mx-auto"
                 tabList={TABS.map((tab) => ({
